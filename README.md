@@ -10,9 +10,9 @@ composer create-project Igor-Art/test test-app
 OR
 ```
 composer install
-cp config.example.php config.php
+cp .env.example .env
 ```
-#### Set database settings in config.php  
+#### Set database settings in .env
 #### Run installation script:
 ```
 php install.php

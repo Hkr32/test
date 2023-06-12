@@ -1,14 +1,10 @@
 <?php
 
-use App\Database\Database;
-
 if (PHP_SAPI !== 'cli') {
     exit('Run this script via the command line instead.'."\n");
 }
 
-require __DIR__.'/vendor/autoload.php';
-
-$config = require __DIR__.'/config.php';
+$config = require __DIR__.'/bootstrap.php';
 
 const CODE_NUMBER = 500_000;
 const CODE_LENGTH = 10;
@@ -27,7 +23,7 @@ function generateCode(int $length): string
     return $code;
 }
 
-$db = new Database(
+$db = new \App\Database\Database(
     $config['db']['host'],
     $config['db']['name'],
     $config['db']['user'],

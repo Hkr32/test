@@ -9,10 +9,10 @@ return [
         ],
     ],
     'db' => [
-        'host' => 'localhost',
-        'user' => 'root',
-        'password' => '',
-        'name' => 'test-app',
+        'host' => env('DB_HOST'),
+        'user' => env('DB_USER'),
+        'password' => env('DB_PASSWORD'),
+        'name' => env('DB_NAME'),
     ],
     'routes' => [
         '/' => \App\Http\Controllers\IndexController::class,
