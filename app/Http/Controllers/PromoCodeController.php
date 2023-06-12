@@ -6,19 +6,21 @@ use app\Exceptions\AppException;
 use App\Http\Request;
 use App\Http\Response;
 use App\Services\PromoCode;
+use App\Services\User;
 
 class PromoCodeController extends Controller
 {
     public function getUserCode(Request $request): Response
     {
-        $promoCode = new PromoCode;
+        $promoCodeService = new PromoCode;
 
         if (!$userId = $request->cookie('user_id')) {
-//            $userId = generate(); // TODO WIP
+            $userService = new User;
+            $userId = $userService->register();
         }
 
         try {
-            $code = $promoCode->getCodeForUser($userId);
+            $code = $promoCodeService->getCodeForUser($userId);
         } catch (AppException $e) {
             return $this->error($e->getMessage());
         }
