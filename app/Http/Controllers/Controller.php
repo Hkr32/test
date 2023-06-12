@@ -11,15 +11,22 @@ abstract class Controller
         protected readonly Application $app,
     ) {}
 
-    public function render(string $name, array $args = []): Response
+    protected function render(string $name, array $args = []): Response
     {
         $content = $this->app->view->render($name, $args);
 
         return new Response($content);
     }
 
-    public function redirect(string $to): Response
+    protected function redirect(string $to): Response
     {
-        return new Response();
+        return (new Response)->setRedirect($to);
+    }
+
+    protected function error(string $message): Response
+    {
+        return $this->render('error', [
+            'message' => $message,
+        ]);
     }
 }
