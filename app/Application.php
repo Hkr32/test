@@ -49,11 +49,6 @@ final class Application
         return $response;
     }
 
-    public function getName(): string
-    {
-        return $this->config['app']['name'];
-    }
-
     private function dispatchToRouter(Request $request): Response
     {
         $router = new Router($request, $this->config['routes']);
