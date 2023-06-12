@@ -1,5 +1,7 @@
 # Awesome promo code
 
+Test task for hiring.
+
 ## Deployment
 #### Create project:
 ```
