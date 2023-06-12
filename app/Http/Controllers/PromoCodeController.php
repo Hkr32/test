@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use app\Exceptions\AppException;
+use App\Exceptions\AppException;
 use App\Http\Request;
 use App\Http\Response;
 use App\Services\PromoCode;

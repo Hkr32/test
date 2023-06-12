@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use app\Exceptions\AppException;
+use App\Exceptions\AppException;
 use App\Queries\PromoCodeQuery;
 
 final readonly class PromoCode
