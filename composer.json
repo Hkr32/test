@@ -16,6 +16,5 @@
         ],
         "post-create-project-cmd": [
         ]
-    },
-    "minimum-stability": "stable"
+    }
 }

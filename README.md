@@ -5,12 +5,8 @@ Test task for hiring.
 ### Deployment
 #### Create project:
 ```
-composer create-project Igor-Art/test test-app
-```
-OR
-```
-composer install
 cp .env.example .env
+composer install
 ```
 ### Set database settings in .env
 
