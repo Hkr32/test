@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+
+    database:
+        image: mysql:8.0
+        container_name: test_app_db
+        restart: "no"
+        ports:
+            - '3377:3306'
+        environment:
+            MYSQL_DATABASE: ${DB_NAME}
+            MYSQL_USER: ${DB_USER}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+        volumes:
+            - ./docker/data/mysql:/var/lib/mysql
+
+    php:
+        build:
+            context: ./docker/bin/php
+        container_name: test_app_php
+        restart: "no"
+        links:
+            - database
+        depends_on:
+            - database
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./docker/config/php/php.ini:/usr/local/etc/php/php.ini
+            - ./:/app
