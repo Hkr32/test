@@ -2,6 +2,10 @@
 
 require __DIR__.'/vendor/autoload.php';
 
+set_exception_handler(static function(Throwable $e) {
+    echo 'Exception: '.$e->getMessage()."\n";
+});
+
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
 
