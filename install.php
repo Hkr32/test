@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `promocodes`(
   `code` VARCHAR(10) NOT NULL,
   `busy_at` TIMESTAMP NULL,
   PRIMARY KEY(`id`),
-  UNIQUE KEY user_id_code_unique (`user_id`, `code`)
+  UNIQUE KEY user_id_unique (`user_id`)
 );
 SQL;
 
